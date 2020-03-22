@@ -2,13 +2,16 @@
 
 <head>
 
-	<title>Anti-covid</title>
+	<title>#FiqueEmCasa</title>
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
 
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:image" content="http://vamosficaremcasa.com.br/assets/anticovid-br.png">
+
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
@@ -22,9 +25,10 @@
 
         <div class="share"></div>
 
-        <div class="logo">
+        <a href="./" class="logo">
+          <div class="mask rotate"></div>
           <img src="assets/anticovid-br.png" />
-        </div>
+        </a>
 
         <div class="translate"></div>
 
@@ -41,7 +45,9 @@
 
       if ($_FILES['avatar']) {
 
-        $mask = new Imagick("./mask.png");
+        $button_text = 'alterar outra foto';
+
+        $mask = new Imagick("./assets/mask-br.png");
         $avatar = new Imagick($_FILES['avatar']['tmp_name']);
 
         $width = $avatar->getImageWidth();
@@ -60,7 +66,7 @@
 
         echo "
         <a href='data:image/jpg;base64,".base64_encode($avatar)."' download='avatar.jpg'>
-          <img src='data:image/jpg;base64,".base64_encode($avatar)."' />
+          <img class='result' src='data:image/jpg;base64,".base64_encode($avatar)."' />
           <div>Clique para baixar</div>
         </a>
         ";
@@ -89,9 +95,11 @@
         fwrite($fp, "data: ${data}, ip: ${ipaddress}\n");
         fclose($fp);
       } else {
+        $button_text = 'alterar minha foto';
         ?>
 
-          <img src="assets/example-br.jpg" alt="Exemplo do resultado" v-on:click="openImageUpload()"/>
+          <img class="mobile" src="assets/example-br-mobile.jpg" alt="Exemplo do resultado" v-on:click="openImageUpload()"/>
+          <img class="desktop" src="assets/example-br.jpg" alt="Exemplo do resultado" v-on:click="openImageUpload()"/>
           
           <?php
       }
@@ -102,7 +110,7 @@
     </section>
 
 
-    <section class="stay-home p30">
+    <section class="stay-home p10">
 
       <div class="container">
 
@@ -119,7 +127,7 @@
 
 
     <div class="space flex">
-      <div class="circle"></div>
+      <div class="circle rotate"></div>
     </div>
 
 
@@ -131,7 +139,7 @@
 
         <p>
           Expressamos o nosso profundo respeito e gratidão aos <b>corajosos profissionais da saúde</b> e
-          cuidadores de todo o planeta ❤ por cuidar de todos nós e também a todos que aderiram a campanha
+          cuidadores de todo o planeta <span class="heart">❤️</span> por cuidar de todos nós e também a todos que aderiram a campanha
           <b>#fiqueemcasa</b>.
         </p>
 
@@ -164,10 +172,10 @@
 
 
 
-    <section class="stay-home p30">
+    <section class="stay-home p10">
       <div class="container">
         <h2>#fique<span>em</span>casa</h2>
-        <div class="waves"></div>
+        <div class="waves" alt="ondas do bem"></div>
       </div>
     </section>
 
@@ -176,7 +184,7 @@
 
     <section class="contact">
       <div class="container">
-        <a href="mailto:anti-covid@gmail.com">Contato por e-mail.</a>
+        <a href="mailto:contato@vamosficaremcasa.com.br" alt="Contato por email">Contato</a>
       </div>
     </section>
 
@@ -187,8 +195,9 @@
 
     <footer>
       <div class="container">
-        <button class="btn" v-bind:class="{ disabled: isLoading }" v-on:click="openImageUpload()">alterar minha foto</button>
-      </div>
+        <button v-if="!isLoading" class="btn" v-on:click="openImageUpload()"><?php echo $button_text; ?></button>
+        <button v-if="isLoading" class="btn disabled">...enviando sua foto</button>
+        </div>
       <div class="hr"></div>
     </footer>
 
@@ -244,4 +253,16 @@ var covidApp = new Vue({
 
 </script>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-56523711-16"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-56523711-16');
+</script>
+
+
 </html>
+
