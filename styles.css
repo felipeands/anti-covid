@@ -1,0 +1,261 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 24px;
+    color: #052E40;
+}
+
+
+.container {
+    padding: 0 20px;
+}
+
+
+@media (min-width: 800px) {
+    .container {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
+.p30 {
+    padding: 40px 0;
+}
+
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+header {
+    background: #052E40;
+    height: 90px;
+}
+
+header .logo {
+    margin-top: 10px;
+}
+
+.flags {
+    background: url('./assets/flags.png');
+    background-size: auto 100%;
+    height: 21px;
+    margin-top: 4px;
+}
+
+
+
+
+
+
+
+
+
+/* 
+elemento de espaçamento
+ */
+.space {
+    justify-content: center;
+    height: 20px;
+}
+
+.space .circle {
+    background: url('./assets/circulo1.png');
+    display: block;
+    height: 40px;
+    width: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.example .container {
+    justify-content: center;
+    padding: 41px 10px;
+}
+
+.example img {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+.stay-home {
+    text-align: center;
+    font-size: 18px;
+}
+
+.stay-home h1 {
+    font-size: 32px;
+}
+
+h1 span, h2 span {
+    font-weight: normal;
+}
+
+.stay-home p {
+    color: #808A8E;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.respect {
+    text-align: center;
+    background-color: #F5F5F5;
+    color: #052E40;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.covid-19 {
+    background: #052E40;
+    color: #BCBCBC;
+    text-align: center;
+}
+
+.covid-19 h2 {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+
+
+
+
+
+
+.waves {
+    background: url('./assets/waves.png');
+    height: 9px;
+}
+
+
+
+
+.contact {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.contact a {
+    color: #052E40;
+}
+
+
+
+
+
+
+
+
+.hr {
+    background: rgb(0,174,193);
+    background: linear-gradient(90deg, rgba(0,174,193,1) 0%, rgba(191,204,0,1) 100%);
+    height: 10px;
+}
+
+
+footer {
+    background: #052E40;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    padding: 30px 10px;
+}
+
+footer .btn {
+    display: block;
+    background: transparent;
+    border: 1px solid #BFCC00;
+    box-sizing: border-box;
+    border-radius: 38px;
+    padding: 14px 74px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+footer .btn.disabled {
+    color: #808A8E;
+    border-color: #808A8E;
+}
+
+
+
+
+
+
+
+
+
+
+.form {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
